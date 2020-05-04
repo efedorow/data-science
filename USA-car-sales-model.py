@@ -67,5 +67,5 @@ def score_dataset(X_train, X_valid, y_train, y_valid):
     return mean_absolute_error(y_valid, preds)
 
 #print the output of mean average error
-print("MAE from Approach 3 (One-Hot Encoding):") 
+print("MAE from One-Hot Encoding:") 
 print(score_dataset(OH_X_train, OH_X_valid, y_train, y_valid))
