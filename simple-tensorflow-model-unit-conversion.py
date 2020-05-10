@@ -15,10 +15,16 @@ pounds_out = np.array([2.205, 11.023, 17.637, 33.069, 50.706, 74.957, 108.027, 1
 for ivar, cvar in enumerate(meters_in):
     print("{} kilograms = {} pounds".format(ivar, pounds_out[ivar]))
 
-#the model used, it has only one layer since it is linear
-model = tf.keras.Sequential([
-        tf.keras.layers.Dense(units=1, input_shape=[1])
-        ])
+#one model used, it has only one layer:
+#model = tf.keras.Sequential([
+        #tf.keras.layers.Dense(units=1, input_shape=[1])
+        #])
+        
+#a model with more neurons would be even more accurate with its predictions:
+l0 = tf.keras.layers.Dense(units=4, input_shape=[1])
+l1 = tf.keras.layers.Dense(units=4)
+l2 = tf.keras.layers.Dense(units=1)
+model = tf.keras.Sequential([l0, l1, l2])
 
 #compile the model with a loss function in terms of mean squared error
 #and using the optimize function Adam for a learning rate of 0.05
@@ -43,4 +49,5 @@ tf.keras.losses.MAE(
     y_true, y_pred)
 
 #to find how accurate it is print the layer weight (real conversion is K = 2.20462*P)
-print("These are the layer vaiables:{}".format(model.get_weights())) #gave value of 2.17817
+#this only works for one layer, otherwise an output of 4 values would be given
+#print("These are the layer vaiables:{}".format(model.get_weights())) #gave value of 2.17817
