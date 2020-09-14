@@ -4,7 +4,7 @@
 #the goal is to create a model to estimate the final price of a home based on 
 #many factors such as the number of bathrooms or lot size, etc
 
-#import stuff used like the csv files
+#import stuff used such as the csv files
 import pandas as pd
 import os
 if not os.path.exists("../input/train.csv"):
